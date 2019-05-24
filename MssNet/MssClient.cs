@@ -17,12 +17,12 @@ namespace MssNet
         private XmlDeserializer XmlDeserializer { get; } = new XmlDeserializer();
         protected virtual HttpClient HttpClient { get; } = new HttpClient();
 
-        public async Task<Models.Response.Root> SendRequest(string methodName, Models.Request.Request request)
+        public async Task<Models.Response.Root> SendRequest(string methodName, Models.Request.Request request, Models.Request.Paging paging = null)
         {
-            var xmlContent = ParseRequest(MssClientHelper.CreateRequestWithDefaults(Settings, methodName, request));
+            var xmlContent = ParseRequest(MssClientHelper.CreateRequestWithDefaults(Settings, methodName, request, paging));
             var httpContent = PrepareHttpContent(xmlContent);
             var httpResponse = await Post(httpContent);
-            string responseAsString = await httpResponse.Content.ReadAsStringAsync();
+            var responseAsString = await httpResponse.Content.ReadAsStringAsync();
             var response = ParseResponse(responseAsString);
 
             var header = response.Header;
