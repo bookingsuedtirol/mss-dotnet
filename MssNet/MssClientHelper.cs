@@ -4,7 +4,7 @@ namespace MssNet
 {
     public sealed class MssClientHelper
     {
-        public static Root CreateRequestWithDefaults(MssClientSettings settings, string methodName, Request request, Paging paging = null)
+        public static Root CreateRequestWithDefaults(MssClientSettings settings)
         {
             return new Root
             {
@@ -17,10 +17,8 @@ namespace MssNet
                         Password = settings?.Password,
                         Source = settings?.Source,
                     },
-                    Method = !string.IsNullOrWhiteSpace(methodName) ? methodName : HeaderMethods.GetHotelList,
-                    Paging = paging,
                 },
-                Request = request ?? CreateDefaultRequest(),
+                Request = CreateDefaultRequest(),
             };
         }
 

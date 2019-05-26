@@ -1,4 +1,5 @@
-﻿using MssNet.Xml;
+﻿using System;
+using MssNet.Xml;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,10 @@ namespace MssNet
         private XmlDeserializer XmlDeserializer { get; } = new XmlDeserializer();
         protected virtual HttpClient HttpClient { get; } = new HttpClient();
 
-        public async Task<Models.Response.Root> SendRequest(string methodName, Models.Request.Request request, Models.Request.Paging paging = null)
+        public async Task<Models.Response.Root> SendRequest(Func<Models.Request.Root, Models.Request.Root> requestFunc)
         {
-            var xmlContent = ParseRequest(MssClientHelper.CreateRequestWithDefaults(Settings, methodName, request, paging));
+            var request = requestFunc(MssClientHelper.CreateRequestWithDefaults(Settings));
+            var xmlContent = ParseRequest(request);
             var httpContent = PrepareHttpContent(xmlContent);
             var httpResponse = await Post(httpContent);
             var responseAsString = await httpResponse.Content.ReadAsStringAsync();

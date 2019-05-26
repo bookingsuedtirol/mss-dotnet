@@ -12,7 +12,7 @@ namespace MssNet.Tests
             var serializer = new XmlSerializer();
             var exception = Assert.Throws<ArgumentNullException>(() => serializer.SerializeObject<object>(null));
 
-            Assert.Equal("Value cannot be null.\r\nParameter name: obj", exception.Message);
+            Assert.Equal(Sanitize("Value cannot be null.\r\nParameter name: obj"), exception.Message);
         }
 
         [Fact]
@@ -21,7 +21,12 @@ namespace MssNet.Tests
             var serializer = new XmlSerializer();
             string xmlContent = serializer.SerializeObject(new Person("Rainer", "Zufall"));
 
-            Assert.Equal("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Person xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <FirstName>Rainer</FirstName>\r\n  <LastName>Zufall</LastName>\r\n</Person>", xmlContent);
+            Assert.Equal(Sanitize("<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Person xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <FirstName>Rainer</FirstName>\r\n  <LastName>Zufall</LastName>\r\n</Person>"), xmlContent);
+        }
+
+        private string Sanitize(string str)
+        {
+            return str.Replace("\r\n", Environment.NewLine);
         }
     }
 }

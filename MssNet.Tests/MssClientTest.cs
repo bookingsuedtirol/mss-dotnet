@@ -9,7 +9,11 @@ namespace MssNet.Tests
         public async Task SendRequest_GivenInvalidRequest_ShouldThrowMssException()
         {
             var mssClient = new FailureMssClient();
-            var exception = await Assert.ThrowsAsync<MssException>(() => mssClient.SendRequest("getRoomList", null));
+            var exception = await Assert.ThrowsAsync<MssException>(() => mssClient.SendRequest(req =>
+            {
+                req.Header.Method = "getRoomList"; 
+                return req;
+            }));
 
             Assert.Equal("Invalid request.", exception.Message);
         }
@@ -18,17 +22,17 @@ namespace MssNet.Tests
         public void SendRequest_GivenValidRequest_ShouldReturnResponse()
         {
             var mssClient = new SuccessMssClient();
-            var request = new Models.Request.Request
+            var response = mssClient.SendRequest(request =>
             {
-                Search = new Models.Request.Search
+                request.Header.Method = "getRoomList";
+                request.Request.Search = new Models.Request.Search
                 {
                     Lang = Models.Request.Languages.German,
                     Id = "9002",
                     IdOfChannel = "hgv",
-                },
-            };
-
-            var response = mssClient.SendRequest("getRoomList", request).Result;
+                };
+                return request;
+            }).Result;
             Assert.NotNull(response);
 
             var header = response.Header;
