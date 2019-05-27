@@ -23,18 +23,18 @@ MSS API wrapper for .NET projects
 var settings = new MssClientSettings("username", "password", "source");
 var client = new MssClient(settings);
 
-var request = new Request
+var response = await client.SendRequest(request =>
 {
-    Search = new Search
+    request.Header.Method = HeaderMethods.GetHotelList;
+    request.Request.Search = new Search
     {
         Id = "9000",
         Lang = Languages.German,
-    },
-    Options = new Options
+    };
+    request.Request.Options = new Options
     {
-        HotelDetails = (int) (HotelDetails.BasicInfo | HotelDetails.PaymentOptionsForOnlineBooking),
-    },
-};
-
-var response = client.SendRequest(HeaderMethods.GetHotelList, request).Result;
+        HotelDetails = (int) (HotelDetails.BasicInfo | PaymentOptionsForOnlineBooking.Themes),
+    };
+    return request;
+});
 ```

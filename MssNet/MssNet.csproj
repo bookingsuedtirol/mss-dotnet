@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Daniel Francesconi</Authors>
+    <RepositoryUrl>https://github.com/HGV/mss-dotnet</RepositoryUrl>
+    <Company>HGV</Company>
+    <PackageId>HGV.MssNet</PackageId>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <Version>0.1.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\license.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
