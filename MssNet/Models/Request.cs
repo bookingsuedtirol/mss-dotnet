@@ -677,7 +677,7 @@ namespace MssNet.Models.Request
         public string FirstName { get; set; }
 
         [XmlElement(ElementName = "lastname")]
-        public string LastaName { get; set; }
+        public string LastName { get; set; }
 
         [XmlElement(ElementName = "email")]
         public string Email { get; set; }
