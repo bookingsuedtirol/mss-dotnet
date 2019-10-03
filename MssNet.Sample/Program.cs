@@ -1,15 +1,16 @@
 ﻿using MssNet.Models.Request;
+using System.Threading.Tasks;
 
 namespace MssNet.Sample
 {
     class Program
     {
-        static void Main(string[] args)
+        async static Task Main(string[] args)
         {
             var settings = new MssClientSettings("username", "password", "source");
             var client = new MssClient(settings);
 
-            var response = client.SendRequest(request =>
+            var response = await client.SendRequest(request =>
             {
                 request.Header.Method = HeaderMethods.GetHotelList;
                 request.Request.Search = new Search
@@ -19,10 +20,10 @@ namespace MssNet.Sample
                 };
                 request.Request.Options = new Options
                 {
-                    HotelDetails = (int) (HotelDetails.BasicInfo | HotelDetails.Themes),
+                    HotelDetails = (int) (HotelDetails.BasicInfo | HotelDetails.Coordinates),
                 };
                 return request;
-            }).Result;
+            });
         }
     }
 }

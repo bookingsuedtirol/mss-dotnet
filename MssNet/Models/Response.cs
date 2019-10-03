@@ -797,7 +797,7 @@ namespace MssNet.Models.Response
     public class Geolocation
     {
         [XmlElement(ElementName = "altitude")]
-        public int Altitude { get; set; }
+        public decimal Altitude { get; set; }
 
         [XmlElement(ElementName = "distance")]
         public int Distance { get; set; }
