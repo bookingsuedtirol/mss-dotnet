@@ -483,6 +483,9 @@ namespace MssNet.Models.Response
 
         [XmlElement(ElementName = "std")]
         public int Std { get; set; }
+
+        [XmlElement(ElementName = "mfp")]
+        public int Mfp { get; set; }
     }
 
     public class PriceList
@@ -579,6 +582,9 @@ namespace MssNet.Models.Response
 
         [XmlElement(ElementName = "std")]
         public int Std { get; set; }
+
+        [XmlElement(ElementName = "mfp")]
+        public int Mfp { get; set; }
     }
 
     public class RoomDetail
