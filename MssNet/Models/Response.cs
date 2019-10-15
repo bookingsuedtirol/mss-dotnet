@@ -84,10 +84,12 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "features")]
         public int Features { get; set; }
 
-        [XmlElement(ElementName = "features_view")]
+        [XmlArray(ElementName = "features_view")]
+        [XmlArrayItem(ElementName = "feature")]
         public Feature[] FeaturesView { get; set; }
 
-        [XmlElement(ElementName = "gallery")]
+        [XmlArray(ElementName = "gallery")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Gallery { get; set; }
 
         [XmlElement(ElementName = "geolocation")]
@@ -114,7 +116,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "location_name")]
         public LocationName LocationName { get; set; }
 
-        [XmlElement(ElementName = "logo")]
+        [XmlArray(ElementName = "logo")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Logos { get; set; }
 
         [XmlElement(ElementName = "lts_data")]
@@ -132,10 +135,12 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "pers_age_min")]
         public decimal PersAgeMin { get; set; }
 
-        [XmlElement(ElementName = "pictures")]
+        [XmlArray(ElementName = "pictures")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Pictures { get; set; }
 
-        [XmlElement(ElementName = "pos")]
+        [XmlArray(ElementName = "pos")]
+        [XmlArrayItem(ElementName = "id_pos")]
         public string[] Pos { get; set; }
 
         [XmlElement(ElementName = "price_engine")]
@@ -144,7 +149,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "price_from")]
         public decimal PriceFrom { get; set; }
 
-        [XmlElement(ElementName = "ratings")]
+        [XmlArray(ElementName = "ratings")]
+        [XmlArrayItem(ElementName = "rating")]
         public Rating[] Ratings { get; set; }
 
         [XmlElement(ElementName = "stars")]
@@ -184,7 +190,8 @@ namespace MssNet.Models.Response
 
     public class Channel
     {
-        [XmlElement(ElementName = "base_price")]
+        [XmlArray(ElementName = "base_price")]
+        [XmlArrayItem(ElementName = "price")]
         public Price[] BasePrices { get; set; }
 
         [XmlElement(ElementName = "channel_id")]
@@ -193,22 +200,28 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "from_price")]
         public decimal FromPrice { get; set; }
 
-        [XmlElement(ElementName = "offer_description")]
+        [XmlArray(ElementName = "offer_description")]
+        [XmlArrayItem(ElementName = "offer")]
         public Offer[] OfferDescriptions { get; set; }
 
-        [XmlElement(ElementName = "room_description")]
+        [XmlArray(ElementName = "room_description")]
+        [XmlArrayItem(ElementName = "room")]
         public Room[] Rooms { get; set; }
 
-        [XmlElement(ElementName = "room_price")]
+        [XmlArray(ElementName = "room_price")]
+        [XmlArrayItem(ElementName = "price")]
         public RoomPrice[] RoomPrices { get; set; }
 
-        [XmlElement(ElementName = "service_price")]
+        [XmlArray(ElementName = "service_price")]
+        [XmlArrayItem(ElementName = "price")]
         public Price[] ServicePrices { get; set; }
 
-        [XmlElement(ElementName = "cancel_policies")]
+        [XmlArray(ElementName = "cancel_policies")]
+        [XmlArrayItem(ElementName = "cancel_policy")]
         public CancelPolicy[] CancelPolicies { get; set; }
 
-        [XmlElement(ElementName = "payment_terms")]
+        [XmlArray(ElementName = "payment_terms")]
+        [XmlArrayItem(ElementName = "payment_term")]
         public PaymentTerm[] PaymentTerms { get; set; }
     }
 
@@ -217,7 +230,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "description")]
         public string Description { get; set; }
 
-        [XmlElement(ElementName = "pictures")]
+        [XmlArray(ElementName = "pictures")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Pictures { get; set; }
 
         [XmlElement(ElementName = "price_ai")]
@@ -313,10 +327,12 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "offer_typ")]
         public int OfferType { get; set; }
 
-        [XmlElement(ElementName = "pictures")]
+        [XmlArray(ElementName = "pictures")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Pictures { get; set; }
 
-        [XmlElement(ElementName = "themes")]
+        [XmlArray(ElementName = "themes")]
+        [XmlArrayItem(ElementName = "theme")]
         public Theme[] Themes { get; set; }
 
         [XmlElement(ElementName = "title")]
@@ -334,7 +350,8 @@ namespace MssNet.Models.Response
 
     public class Room
     {
-        [XmlElement(ElementName = "days")]
+        [XmlArray(ElementName = "days")]
+        [XmlArrayItem(ElementName = "day")]
         public Day[] Days { get; set; }
 
         [XmlElement(ElementName = "description")]
@@ -343,13 +360,15 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "features")]
         public int Features { get; set; }
 
-        [XmlElement(ElementName = "features_view")]
+        [XmlArray(ElementName = "features_view")]
+        [XmlArrayItem(ElementName = "feature")]
         public Feature[] FeaturesView { get; set; }
 
         [XmlElement(ElementName = "occupancy")]
         public Occupancy Occupancy { get; set; }
 
-        [XmlElement(ElementName = "pictures")]
+        [XmlArray(ElementName = "pictures")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Pictures { get; set; }
 
         [XmlElement(ElementName = "price_from")]
@@ -367,7 +386,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "room_description")]
         public string RoomDescription { get; set; }
 
-        [XmlElement(ElementName = "room_details")]
+        [XmlArray(ElementName = "room_details")]
+        [XmlArrayItem(ElementName = "room_detail")]
         public RoomDetail[] RoomDetails { get; set; }
 
         [XmlElement(ElementName = "room_free")]
@@ -385,7 +405,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "room_persons")]
         public string RoomPersons { get; set; }
 
-        [XmlElement(ElementName = "room_price")]
+        [XmlArray(ElementName = "room_price")]
+        [XmlArrayItem(ElementName = "price")]
         public Price[] RoomPrices { get; set; }
 
         [XmlElement(ElementName = "room_title")]
@@ -412,7 +433,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "free")]
         public int Free { get; set; }
 
-        [XmlElement(ElementName = "restrictions")]
+        [XmlArray(ElementName = "restrictions")]
+        [XmlArrayItem(ElementName = "restriction")]
         public Restrictions[] Restrictions { get; set; }
     }
 
@@ -601,7 +623,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "offer_id")]
         public int OfferId { get; set; }
 
-        [XmlElement(ElementName = "price_details")]
+        [XmlArray(ElementName = "price_details")]
+        [XmlArrayItem(ElementName = "price")]
         public Price[] PriceDetails { get; set; }
 
         [XmlElement(ElementName = "price_inclusive")]
@@ -634,7 +657,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "refundable_until")]
         public DateTime RefundableUntil { get; set; }
 
-        [XmlElement(ElementName = "penalties")]
+        [XmlArray(ElementName = "penalties")]
+        [XmlArrayItem(ElementName = "penalty")]
         public Penalty[] Penalties { get; set; }
 
         [XmlElement(ElementName = "description")]
@@ -739,10 +763,12 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "description")]
         public string Description { get; set; }
 
-        [XmlElement(ElementName = "hotels")]
+        [XmlArray(ElementName = "hotels")]
+        [XmlArrayItem(ElementName = "hotel")]
         public Hotel[] Hotels { get; set; }
 
-        [XmlElement(ElementName = "inclusive")]
+        [XmlArray(ElementName = "inclusive")]
+        [XmlArrayItem(ElementName = "price")]
         public Price[] Inclusive { get; set; }
 
         [XmlElement(ElementName = "offer_id")]
@@ -751,13 +777,16 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "offer_typ")]
         public int OfferType { get; set; }
 
-        [XmlElement(ElementName = "pictures")]
+        [XmlArray(ElementName = "pictures")]
+        [XmlArrayItem(ElementName = "picture")]
         public Picture[] Pictures { get; set; }
 
-        [XmlElement(ElementName = "seasons")]
+        [XmlArray(ElementName = "seasons")]
+        [XmlArrayItem(ElementName = "season")]
         public Season[] Seasons { get; set; }
 
-        [XmlElement(ElementName = "services")]
+        [XmlArray(ElementName = "services")]
+        [XmlArrayItem(ElementName = "service")]
         public int[] Services { get; set; }
 
         [XmlElement(ElementName = "special_premium")]
@@ -769,7 +798,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "status")]
         public int Status { get; set; }
 
-        [XmlElement(ElementName = "themes")]
+        [XmlArray(ElementName = "themes")]
+        [XmlArrayItem(ElementName = "theme")]
         public Theme[] Themes { get; set; }
 
         [XmlElement(ElementName = "title")]

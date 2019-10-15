@@ -742,7 +742,7 @@ namespace MssNet.Models.Request
     public class Details
     {
         [XmlElement(ElementName = "extr_price")]
-        public ExtraPrice[] EtryPrices { get; set; }
+        public ExtraPrice[] ExtraPrices { get; set; }
     }
 
     public class ExtraPrice
