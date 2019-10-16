@@ -28,7 +28,7 @@ var response = await client.SendRequest(request =>
     request.Header.Method = HeaderMethods.GetHotelList;
     request.Request.Search = new Search
     {
-        Id = "9000",
+        Ids = new string[] { "9000" },
         Lang = Languages.German,
     };
     request.Request.Options = new Options

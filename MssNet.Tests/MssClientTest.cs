@@ -28,7 +28,7 @@ namespace MssNet.Tests
                 request.Request.Search = new Models.Request.Search
                 {
                     Lang = Models.Request.Languages.German,
-                    Id = "9002",
+                    Ids = new string[] { "9002" },
                     IdOfChannel = "hgv",
                 };
                 return request;

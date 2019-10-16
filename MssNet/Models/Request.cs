@@ -93,7 +93,7 @@ namespace MssNet.Models.Request
         public string Agent { get; set; }
 
         [XmlElement(ElementName = "id")]
-        public string Id { get; set; }
+        public string[] Ids { get; set; }
 
         [XmlElement(ElementName = "search_hotel")]
         public SearchHotel SearchHotel { get; set; }
