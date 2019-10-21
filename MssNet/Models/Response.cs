@@ -301,7 +301,7 @@ namespace MssNet.Models.Response
 
         [XmlElement(ElementName = "title")]
         public string Title { get; set; }
-        
+
         [XmlElement(ElementName = "url")]
         public string Url
         {
