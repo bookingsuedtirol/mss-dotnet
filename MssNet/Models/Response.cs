@@ -291,6 +291,8 @@ namespace MssNet.Models.Response
 
     public class Picture
     {
+        private string url;
+
         [XmlElement(ElementName = "copyright")]
         public string Copyright { get; set; }
 
@@ -301,7 +303,11 @@ namespace MssNet.Models.Response
         public string Title { get; set; }
 
         [XmlElement(ElementName = "url")]
-        public string Url { get; set; }
+        public string Url
+        {
+            get => url;
+            set => url = value.Replace("www.easymailing.eu", "www.bookingsuedtirol.com");
+        }
     }
 
     public class Offer
