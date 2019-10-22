@@ -60,6 +60,8 @@ namespace MssNet.Models.Response
 
     public class Hotel
     {
+        private string name;
+
         [XmlElement(ElementName = "address")]
         public Address Address { get; set; }
 
@@ -127,7 +129,11 @@ namespace MssNet.Models.Response
         public Matching Matching { get; set; }
 
         [XmlElement(ElementName = "name")]
-        public string Name { get; set; }
+        public string Name 
+        { 
+            get => name; 
+            set => name = !string.IsNullOrWhiteSpace(value) ? value.Trim() : null; 
+        }
 
         [XmlElement(ElementName = "board")]
         public int Board { get; set; }
@@ -823,8 +829,13 @@ namespace MssNet.Models.Response
 
     public class Contact
     {
+        private string email;
         [XmlElement(ElementName = "email")]
-        public string Email { get; set; }
+        public string Email
+        { 
+            get => email; 
+            set => email = !string.IsNullOrWhiteSpace(value) ? value.Trim() : null; 
+        }
 
         [XmlElement(ElementName = "fax")]
         public string Fax { get; set; }
