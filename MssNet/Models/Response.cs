@@ -132,7 +132,7 @@ namespace MssNet.Models.Response
         public string Name 
         { 
             get => name; 
-            set => name = value.Trim(); 
+            set => name = !string.IsNullOrWhiteSpace(value) ? value.Trim() : null; 
         }
 
         [XmlElement(ElementName = "board")]
@@ -834,7 +834,7 @@ namespace MssNet.Models.Response
         public string Email
         { 
             get => email; 
-            set => email = value.Trim(); 
+            set => email = !string.IsNullOrWhiteSpace(value) ? value.Trim() : null; 
         }
 
         [XmlElement(ElementName = "fax")]
