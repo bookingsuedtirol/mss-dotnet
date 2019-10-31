@@ -748,11 +748,20 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "adults_min")]
         public int AdultsMin { get; set; }
 
+        [XmlElement(ElementName = "adult_age_min")]
+        public int AdultAgeMin { get; set; }
+
         [XmlElement(ElementName = "children_max")]
         public int ChildrenMax { get; set; }
 
         [XmlElement(ElementName = "children_min")]
         public int ChildrenMin { get; set; }
+
+        [XmlElement(ElementName = "child_age_max")]
+        public int ChildAgeMax { get; set; }
+
+        [XmlElement(ElementName = "child_age_min")]
+        public int ChildAgeMin { get; set; }
 
         [XmlElement(ElementName = "days_arrival")]
         public int DaysArrival { get; set; }
@@ -788,6 +797,9 @@ namespace MssNet.Models.Response
 
         [XmlElement(ElementName = "offer_typ")]
         public int OfferType { get; set; }
+
+        [XmlElement(ElementName = "pers_age_min")]
+        public int PersAgeMin { get; set; }
 
         [XmlArray(ElementName = "pictures")]
         [XmlArrayItem(ElementName = "picture")]
