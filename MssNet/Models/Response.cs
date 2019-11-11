@@ -169,7 +169,7 @@ namespace MssNet.Models.Response
     public sealed class Languages
     {
         public static readonly string German = "de";
-        public static readonly string italian = "it";
+        public static readonly string Italian = "it";
         public static readonly string English = "en";
     }
 
