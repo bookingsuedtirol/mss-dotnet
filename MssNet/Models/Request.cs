@@ -715,6 +715,9 @@ namespace MssNet.Models.Request
         [XmlElement(ElementName = "taxnumber")]
         public string TaxNumber { get; set; }
 
+        [XmlElement(ElementName = "recipient_code")]
+        public string RecipientCode { get; set; }
+
         [XmlElement(ElementName = "address")]
         public Address Address { get; set; }
     }
