@@ -409,7 +409,7 @@ namespace MssNet.Models.Response
         public int RoomId { get; set; }
 
         [XmlElement(ElementName = "room_lts_id")]
-        public int RoomLtsId { get; set; }
+        public string RoomLtsId { get; set; }
 
         [XmlElement(ElementName = "room_numbers")]
         public string[] RoomNumbers { get; set; }
