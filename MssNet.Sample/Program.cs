@@ -8,22 +8,23 @@ namespace MssNet.Sample
         async static Task Main(string[] args)
         {
             var settings = new MssClientSettings("username", "password", "source");
-            var client = new MssClient(settings);
-
-            var response = await client.SendRequest(request =>
+            using (var client = new MssClient(settings))
             {
-                request.Header.Method = HeaderMethods.GetHotelList;
-                request.Request.Search = new Search
+                var response = await client.SendRequest(request =>
                 {
-                    Ids = new string[] { "9000" },
-                    Lang = Languages.German,
-                };
-                request.Request.Options = new Options
-                {
-                    HotelDetails = (int) (HotelDetails.BasicInfo | HotelDetails.Coordinates),
-                };
-                return request;
-            });
+                    request.Header.Method = HeaderMethods.GetHotelList;
+                    request.Request.Search = new Search
+                    {
+                        Ids = new string[] { "9000" },
+                        Lang = Languages.German,
+                    };
+                    request.Request.Options = new Options
+                    {
+                        HotelDetails = (int)(HotelDetails.BasicInfo | HotelDetails.Coordinates),
+                    };
+                    return request;
+                });
+            }
         }
     }
 }

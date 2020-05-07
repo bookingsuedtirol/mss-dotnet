@@ -6,17 +6,26 @@ using System.Threading.Tasks;
 
 namespace MssNet
 {
-    public class MssClient
+    public class MssClient : IDisposable
     {
+        private HttpClient _httpClient;
+
         public MssClient(MssClientSettings settings)
         {
             Settings = settings;
+            _httpClient = new HttpClient();
+        }
+
+        public MssClient(MssClientSettings settings, HttpClient httpClient)
+        {
+            Settings = settings;
+            _httpClient = httpClient;
         }
 
         private MssClientSettings Settings { get; set; }
         private XmlSerializer XmlSerializer { get; } = new XmlSerializer();
         private XmlDeserializer XmlDeserializer { get; } = new XmlDeserializer();
-        protected virtual HttpClient HttpClient { get; } = new HttpClient();
+        protected virtual HttpClient HttpClient { get { return _httpClient; } }
 
         public async Task<Models.Response.Root> SendRequest(Func<Models.Request.Root, Models.Request.Root> requestFunc)
         {
@@ -53,6 +62,15 @@ namespace MssNet
         private Models.Response.Root ParseResponse(string responseAsString)
         {
             return XmlDeserializer.Deserialize<Models.Response.Root>(responseAsString);
+        }
+
+        public void Dispose()
+        {
+            if (_httpClient != null)
+            {
+                _httpClient.Dispose();
+                _httpClient = null;
+            }
         }
     }
 }
