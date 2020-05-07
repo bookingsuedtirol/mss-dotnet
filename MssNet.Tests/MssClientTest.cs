@@ -19,10 +19,10 @@ namespace MssNet.Tests
         }
 
         [Fact]
-        public void SendRequest_GivenValidRequest_ShouldReturnResponse()
+        public async Task SendRequest_GivenValidRequest_ShouldReturnResponse()
         {
             var mssClient = new SuccessMssClient();
-            var response = mssClient.SendRequest(request =>
+            var response = await mssClient.SendRequest(request =>
             {
                 request.Header.Method = "getRoomList";
                 request.Request.Search = new Models.Request.Search
@@ -32,7 +32,7 @@ namespace MssNet.Tests
                     IdOfChannel = "hgv",
                 };
                 return request;
-            }).Result;
+            });
             Assert.NotNull(response);
 
             var header = response.Header;
