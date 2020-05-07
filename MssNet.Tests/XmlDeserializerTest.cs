@@ -12,7 +12,7 @@ namespace MssNet.Tests
             var deserializer = new XmlDeserializer();
             var exception = Assert.Throws<ArgumentException>(() => deserializer.Deserialize<Person>(null));
 
-            Assert.Equal("xmlContent cannot be null or whitespace.", exception.Message);
+            Assert.Equal("xmlContent", exception.ParamName);
         }
 
         [Fact]
@@ -21,7 +21,7 @@ namespace MssNet.Tests
             var deserializer = new XmlDeserializer();
             var exception = Assert.Throws<ArgumentException>(() => deserializer.Deserialize<Person>(""));
 
-            Assert.Equal("xmlContent cannot be null or whitespace.", exception.Message);
+            Assert.Equal("xmlContent", exception.ParamName);
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace MssNet.Tests
             var deserializer = new XmlDeserializer();
             var exception = Assert.Throws<ArgumentException>(() => deserializer.Deserialize<Person>(" "));
 
-            Assert.Equal("xmlContent cannot be null or whitespace.", exception.Message);
+            Assert.Equal("xmlContent", exception.ParamName);
         }
 
         [Fact]

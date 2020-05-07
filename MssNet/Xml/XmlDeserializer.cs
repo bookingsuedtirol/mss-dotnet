@@ -8,7 +8,7 @@ namespace MssNet.Xml
         public T Deserialize<T>(string xmlContent)
         {
             if (string.IsNullOrWhiteSpace(xmlContent))
-                throw new ArgumentException($"{nameof(xmlContent)} cannot be null or whitespace.");
+                throw new ArgumentException("Cannot be null or whitespace.", nameof(xmlContent));
 
             using (TextReader reader = new StringReader(xmlContent))
             {
