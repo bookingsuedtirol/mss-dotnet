@@ -1,6 +1,8 @@
 # mss-dotnet
 MSS API wrapper for .NET projects
 
+![NuGet](https://img.shields.io/nuget/v/HGV.MssNet)
+
 > Warning! Do not use this in production yet!
 > Supports only v2.0!
 
@@ -21,20 +23,21 @@ MSS API wrapper for .NET projects
 
 ```cs  
 var settings = new MssClientSettings("username", "password", "source");
-var client = new MssClient(settings);
-
-var response = await client.SendRequest(request =>
+using (var client = new MssClient(settings))
 {
-    request.Header.Method = HeaderMethods.GetHotelList;
-    request.Request.Search = new Search
+    var response = await client.SendRequest(request =>
     {
-        Ids = new string[] { "9000" },
-        Lang = Languages.German,
-    };
-    request.Request.Options = new Options
-    {
-        HotelDetails = (int) (HotelDetails.BasicInfo | PaymentOptionsForOnlineBooking.Themes),
-    };
-    return request;
-});
+        request.Header.Method = HeaderMethods.GetHotelList;
+        request.Request.Search = new Search
+        {
+            Ids = new string[] { "9000" },
+            Lang = Languages.German,
+        };
+        request.Request.Options = new Options
+        {
+            HotelDetails = (int) (HotelDetails.BasicInfo | PaymentOptionsForOnlineBooking.Themes),
+        };
+        return request;
+    });
+}
 ```
