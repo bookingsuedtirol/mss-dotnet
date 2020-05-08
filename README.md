@@ -1,7 +1,7 @@
 # mss-dotnet
 MSS API wrapper for .NET projects
 
-![NuGet](https://img.shields.io/nuget/v/HGV.MssNet)
+[![NuGet](https://img.shields.io/nuget/v/HGV.MssNet)](https://www.nuget.org/packages/HGV.MssNet)
 
 > Warning! Do not use this in production yet!
 > Supports only v2.0!
