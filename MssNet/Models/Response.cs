@@ -865,7 +865,7 @@ namespace MssNet.Models.Response
         public decimal Altitude { get; set; }
 
         [XmlElement(ElementName = "distance")]
-        public int Distance { get; set; }
+        public decimal Distance { get; set; }
 
         [XmlElement(ElementName = "latitude")]
         public decimal Latitude { get; set; }
