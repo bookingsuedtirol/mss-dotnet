@@ -314,6 +314,12 @@ namespace MssNet.Models.Response
             get => url;
             set => url = value.Replace("www.easymailing.eu", "www.bookingsuedtirol.com");
         }
+
+        [XmlElement(ElementName = "width")]
+        public int Width { get; set; }
+
+        [XmlElement(ElementName = "height")]
+        public int Height { get; set; }
     }
 
     public class Offer
