@@ -12,7 +12,7 @@ namespace MssNet.Tests
             var serializer = new XmlSerializer();
             var exception = Assert.Throws<ArgumentNullException>(() => serializer.SerializeObject<object>(null));
 
-            Assert.Equal(Sanitize("Value cannot be null.\r\nParameter name: obj"), exception.Message);
+            Assert.Equal(Sanitize("Value cannot be null. (Parameter 'obj')"), exception.Message);
         }
 
         [Fact]
