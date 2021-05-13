@@ -56,7 +56,7 @@ namespace MssNet
 
         private Task<HttpResponseMessage> Post(HttpContent content)
         {
-            return HttpClient.PostAsync("https://www.easymailing.eu/mss/mss_service.php", content);
+            return HttpClient.PostAsync("https://easychannel.it/mss/mss_service.php", content);
         }
 
         private Models.Response.Root ParseResponse(string responseAsString)
