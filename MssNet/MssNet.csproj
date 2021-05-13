@@ -7,7 +7,7 @@
     <Company>HGV</Company>
     <PackageId>HGV.MssNet</PackageId>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <Version>0.1.10</Version>
+    <Version>0.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
