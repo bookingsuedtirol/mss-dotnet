@@ -3,11 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Daniel Francesconi</Authors>
-    <RepositoryUrl>https://github.com/HGV/mss-dotnet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/bookingsuedtirol/mss-dotnet</RepositoryUrl>
     <Company>HGV</Company>
-    <PackageId>HGV.MssNet</PackageId>
+    <PackageId>BookingSuedtirol.MssNet</PackageId>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
+    <Description>MSS API client for .NET projects</Description>
   </PropertyGroup>
 
   <ItemGroup>

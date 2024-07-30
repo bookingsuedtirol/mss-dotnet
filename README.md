@@ -1,7 +1,8 @@
 # mss-dotnet
+
 MSS API wrapper for .NET projects
 
-[![NuGet](https://img.shields.io/nuget/v/HGV.MssNet)](https://www.nuget.org/packages/HGV.MssNet)
+[![NuGet](https://img.shields.io/nuget/v/BookingSuedtirol.MssNet)](https://www.nuget.org/packages/BookingSuedtirol.MssNet)
 
 > Warning! Do not use this in production yet!
 > Supports only v2.0!
@@ -21,7 +22,7 @@ MSS API wrapper for .NET projects
 
 ## Example
 
-```cs  
+```cs
 var settings = new MssClientSettings("username", "password", "source");
 using (var client = new MssClient(settings))
 {
