@@ -307,7 +307,11 @@ namespace MssNet.Models.Response
         public string Title { get; set; }
 
         [XmlElement(ElementName = "url")]
-        public string Url { get; set; }
+        public string Url
+        {
+            get { return Url?.Replace("https://easychannel.it/", "https://cdn.easychannel.it/"); }
+            set { Url = value; }
+        }
 
         [XmlElement(ElementName = "width")]
         public int Width { get; set; }
