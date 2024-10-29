@@ -7,7 +7,7 @@
     <Company>HGV</Company>
     <PackageId>BookingSuedtirol.MssNet</PackageId>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <Description>MSS API client for .NET projects</Description>
   </PropertyGroup>
 
