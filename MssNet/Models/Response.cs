@@ -297,6 +297,8 @@ namespace MssNet.Models.Response
 
     public class Picture
     {
+        private string _url;
+
         [XmlElement(ElementName = "copyright")]
         public string Copyright { get; set; }
 
@@ -309,8 +311,8 @@ namespace MssNet.Models.Response
         [XmlElement(ElementName = "url")]
         public string Url
         {
-            get { return Url?.Replace("https://easychannel.it/", "https://cdn.easychannel.it/"); }
-            set { Url = value; }
+            get { return _url?.Replace("https://easychannel.it/", "https://cdn.easychannel.it/"); }
+            set { _url = value; }
         }
 
         [XmlElement(ElementName = "width")]
