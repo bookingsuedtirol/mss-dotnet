@@ -4,8 +4,10 @@ MSS API wrapper for .NET projects
 
 [![NuGet](https://img.shields.io/nuget/v/BookingSuedtirol.MssNet)](https://www.nuget.org/packages/BookingSuedtirol.MssNet)
 
-> Warning! Do not use this in production yet!
-> Supports only v2.0!
+> [!WARNING]
+> This project is no longer maintained as of 2026-10-19 and may break at any time. Use at your own risk.
+
+Supports only MSS API v2.0.
 
 ## Available services
 
